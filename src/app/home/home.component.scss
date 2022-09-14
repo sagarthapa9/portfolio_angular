@@ -1,4 +1,121 @@
-.row{
+.cover-container {
+    main {
+
+        padding-top: 4em;
+        text-align:center;
+        h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: hsl(23, 95%, 50%);
+           
+        }
+        p{
+            padding-top: 1em ;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+    }
+}
+
+.nav-masthead {
+  .nav-link {
+    padding: .25rem 0;
+    font-weight: 600;
+    font-size: 1.3em;
+    color: rgba(255, 255, 255, .5);
+    padding-left: 1em;
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    border-bottom-color: rgba(255, 255, 255, .25);
+  }
+
+  .active {
+    color: #fff;
+    border-bottom-color: #fff;
+  }
+
+}
+
+.nav-masthead-scroll {
+   background-color: #fff;
+   height: 3em;
+  .nav-link {
+    padding: .25rem 0;
+    font-weight: 500;
+    font-size: 1.5em;
+    color:hsl(23, 95%, 50%);
+    padding-left: 1em;
+    border-bottom: .25rem solid transparent;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    border-bottom-color: hsl(23, 75%, 62%);
+  }
+
+  .active {
+    color:hsl(23, 75%, 62%);
+    border-bottom-color:hsl(23, 75%, 62%);
+  }
+
+}
+
+ #page-details
+ {
   padding-top: 3em;
-  padding-left: 2em;
+
+  #intro{
+    padding-bottom: 2em;
+  }
+  #portfolio, #skillset{
+    padding-top: 2em;
+    border-top:black solid 0.08em;
+  }
+  .icon{
+    display: inline-flex;
+    vertical-align: top;
+    font-size: larger;
+  }
+  .progress{
+    margin: 1em;
+    height: 2em;
+    .progress-bar{
+      text-align: left;
+      padding-left: 1em ;
+      background:hwb(23 25% 12%);
+      font-weight: 700;
+      font-size: 1em;
+    }
+
+  }
+  #portfolio{
+    .project{
+      padding-top: 2em;
+      padding-bottom: 2em;
+      border-bottom:black solid 0.08em;
+    }
+   }
+   #contactme{
+    padding-top: 2em;;
+   }
+ }
+
+ footer{
+  text-align: center;
+  min-height: 5em;
+  p{
+    padding-top: 2em;
+  }
+ }
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+    color: #333;
+    text-shadow: none;
+    /* Prevent inher s itance from `body` */
 }

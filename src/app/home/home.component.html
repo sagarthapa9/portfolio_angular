@@ -1,28 +1,187 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
-  
-      <h2>Who I am</h2>
-      <p>  "Hello I am Sagar Thapa; I am a developer and designer currently residing in Oxford . I am currently looking for opportunity to enhance my programming,
-        analytical, creative and problem solving skills and pursue my career in the competitive world of web based application development."</p>
-    </div>
-    <div class="col-md-4">
-      <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
-  
-      <h2>What I do</h2>
-      <p>I love to create and build websites using front-end and .net technologies for developing state of art web applications
-        with minute details and presicion.</p>
-      <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
-    </div>
-    <div class="col-md-4">
-      <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
-  
-      <h2>What I love </h2>
-      <p>I am passionate about learning innovative and creative technologies.
-        I thrive on understanding new concepts and ideas in order to enhance my skills.</p>
-      <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
-    </div>
+<div class="text-white bg-dark">
+  <!-- Header with menu -->
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <nav [ngClass]="onScroll==true?'nav-masthead-scroll':'nav-masthead'" class="nav fixed-top justify-content-center" id="navbar">
+        <a [ngClass]="activeMenu=='top' ? 'active' : ''" class="nav-link" aria-current="page" (click)="goToSection('top')">About</a>
+        <a [ngClass]="activeMenu=='portfolio-header' ? 'active' : ''" class="nav-link" (click)="goToSection('portfolio-header')">Portfolio</a>
+        <a [ngClass]="activeMenu=='skillset' ? 'active' : ''" class="nav-link" (click)="goToSection('skillset')">SkillSet</a>
+        <a [ngClass]="activeMenu=='contactme' ? 'active' : ''"class="nav-link" (click)="goToSection('contactme')">Contact Me</a>
+      </nav>
+    </header>
+
+    <main class="px-3" id="top">
+      <h1> Hi I am Sagar Thapa </h1>
+      <h1>I am a Full Stack Software Developer</h1>
+      <p class="lead">I have a passion for details.<br> I strive to develop & design applications that creates real value.</p>
+      <p class="lead">
+        <button class="btn btn-lg btn-secondary fw-bold border-white bg-white" (click)="goToWork()">View my work</button>
+      </p>
+    </main>
   </div>
 </div>
-
+<div class="container" id="page-details" >
+  <!-- Who section-->
+  <div class="row" id="intro">
+    <div class="col-md-4">
+      <h4><span class="material-icons icon">
+          perm_identity
+        </span>Who I Am </h4>
+      <p> "Hello I am Sagar Thapa. I have 8+ years of experience as a full stack Software Developer. I always look
+        for opportunity to enhance my programming,
+        analytical, creative and problem solving skills and pursue my career in the competitive world of web
+        application development."</p>
+    </div>
+    <div class="col-md-4">
+      <h4><span class="material-icons icon">
+          home_repair_service
+        </span> What I Do</h4>
+      <p> I enjoy working with all layers of stack.
+        I love building state of art, user friendly efficent websites using both front-end and back-end technologies
+        with minute details and presicion.</p>
+    </div>
+    <div class="col-md-4">
+      <h4> <span class="material-icons icon">
+          favorite_border
+        </span>What I Love </h4>
+      <p>I am passionate about learning innovative and creative technologies.
+        I thrive on understanding new concepts and ideas in order to enhance my skills.</p>
+    </div>
+  </div>
+     <!-- Skill sets section-->
+    <div class="row">
+      <h4  id="skillset"><span class="material-icons">
+          construction
+        </span> What I Know</h4>
+      <div class="col-md-4">
+        <p>In my journey of software development I have come across various projects which required to learn and use different tools and frameworks.
+          This <strong>Skill graph </strong>shows my level of expertise on various technologies stacks.
+        </p>
+        <p>
+          Additionally I also have sound knowledge of working in Agile  Environment using  Git for version control, Team City for continuous integration and deployment,TDD.
+        </p>
+      </div>
+      <div class="col-md-8">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+            aria-valuemax="100"> C#</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+            aria-valuemax="100">ServiceStack</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+            aria-valuemax="100">Angular / Javascript </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+            aria-valuemax="100">HTML/CSS</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+            aria-valuemax="100">SQL</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+            aria-valuemax="100">Ionic Framework</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+            aria-valuemax="100">Android Development</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+            aria-valuemax="100">Firebase Hosting</div>
+        </div>
+      </div>
+    </div>
+     <!-- Portfolio section-->
+    <div class="col-md-10" id="portfolio" >
+      <h3 id="portfolio-header" >PORTFOLIO</h3>
+      <p>Following are the list of projects which I have worked.</p>
+      <div class="row project">
+        <div class="col-md-6 ">
+          <h4>vinCARRIER</h4>
+          <b>vinCARRIER is web and mobile app-based Transport Management System (TMS) for UK and US carriers.</b> 
+          <ul>
+            <li>a Saas web Platform allows OEMs, Dealerships and vehicle Transport companies to manage Loads, Trucks, Drivers.</li>
+            <li>Mobile app helps drivers to manage their deliveries.</li>
+          </ul>
+          <label>Technologies</label>
+          <p>Web : C#, MVC, ServiceStack, AngularJS, HTML, CSS, MSSQL</p>
+          <p>Mobile : Ionic Framework, Cordova, Angular, Typescript</p>
+  
+        </div>
+        <div class="col-md-6">
+          <img src="../../assets/images/vincarrier.jpg" class="img-fluid" alt="...">
+        </div>
+      </div>
+      <div class="row project">
+        <div class="col-md-6">
+          <h4>vinDISPATCH</h4>
+          <b>vinDISPATCH is online Marketplace that connects Vehicle Transport Companies and Car Dealerships, OEMS, Auctions to Post, Find and provide vehicle movement service.  </b> 
+          <ul>
+            <li>OEMs, Car Dealerships and Auction houses can request vehicle Transportation service.</li>
+            <li>Vehicle Carriers can quote and accept request.</li>
+          </ul>
+          <label>Technologies</label>
+          <p>C#, MVC, ServiceStack, AngularJS, HTML, CSS, MSSQL</p>
+        </div>
+        <div class="col-md-6">
+          <img src="../../assets/images/vindispatch.jpg" class="img-fluid" alt="...">
+        </div>
+      </div>
+      <div class="row project">
+        <div class="col-md-6" >
+          <h3>Exerwise fitness coach</h3>
+          <b>The Mobile application for android provides real-time exercise tracking with the help of smartphone's camera
+            that analyse performed workout technique and gives real-time feedback on performance. </b>
+         <ul>
+          <li>This is my side project which I build from scratch being curious about AI & love for fitness.</li>
+          <li> App uses PoseNet movement recognition technology running on Tensorflow an advanced machine learning library to give real-time feedback on workout
+            performance.</li>
+          <li>It counts repetitions during workouts, provides audio feedback on your exercise execution and also can save workout and provide statistics to track progress.</li>
+        </ul> 
+        <label>Technologies</label>
+        <p>Ionic Framework, Cordova, Tensorflow.js, Android SDK, Firebase, Angular</p>
+        </div>
+        <div class="col-md-6 app-img">
+          <img src="../../assets/images/exerwise_login.jpg" class="img-fluid" alt="..." style="max-width:8em; padding-left: 0.4em;">
+          <img src="../../assets/images/exerwise_home.jpg" class="img-fluid" alt="..." style="max-width:8em; padding-left: 0.4em;">
+          <img src="../../assets/images/exerwise_saved_stats.jpg" class="img-fluid" alt="..." style="max-width:8em; padding-left: 0.4em;">
+          <img src="../../assets/images/exerwise_detail.jpg" class="img-fluid" alt="..." style="max-width:8em; padding-left: 0.4em;"> 
+        </div>
+      </div>
+      <div class="row project">
+        <div class="col-md-6">
+          <h3>ScreenhitsTv.com</h3>
+          <b>ScreenHits TV is the central hub of television streaming. which allows consumers to discover a high volume of
+            television content through streaming services all in one place.
+          </b>
+          <ul>
+            <li>Developed screenhits B2C and B2B web platforms using both front-end and back-end technology in azure cloud
+              computing environment </li>
+            <li>was responsible for content management infrastructure and integration to Samsung Smart TV app as well as working
+              closely with content delivery network services for maintaining optimal global website performance and user
+              experience. </li>
+          </ul>
+          <label>Technologies</label>
+          <p>HTML/CSS, Bootstrap, Javascript, Jquery, Ajax, C#/Asp.net and MSSQL.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img src="../../assets/images/screenhitstv.jpg" class="img-fluid" alt="...">
+  
+        </div>
+      </div>
+    </div>
+ <!-- Contact me section-->
+    <div class="col-md-12" id="contactme">
+      <h3>CONTACT ME</h3>
+      <p><b>Feel free to get in touch Email: sagarthapa_9@yahoo.com</b></p> 
+    </div>
+</div>
+<footer class="mt-auto text-white-50 bg-dark">
+  <p> Copyright &copy; <a href="https://sagarthapa.co.uk" class="text-white">Sagar Thapa</a> 2022</p>
+</footer>
