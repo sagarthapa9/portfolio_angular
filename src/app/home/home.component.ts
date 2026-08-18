@@ -1,10 +1,12 @@
-import { Component, OnInit, HostListener, AfterContentInit } from '@angular/core';
+import { Component, OnInit, HostListener, AfterContentInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from "@angular/router";
 import { ViewportScroller } from '@angular/common';
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 
 
