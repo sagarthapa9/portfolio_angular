@@ -2,8 +2,3 @@
 
 /* Load Bootstrap SCSS into the global namespace. */
 @use 'bootstrap/scss/bootstrap' as *;
-body{
-    font-family: 'Courier New', Courier, monospace;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

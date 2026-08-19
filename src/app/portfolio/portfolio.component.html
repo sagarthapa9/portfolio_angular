@@ -1,27 +1,237 @@
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Profile 1</h2>
-            <p> "Hello I am Sagar Thapa; I am a developer and designer currently residing in Oxford . I am currently
-                looking for
-                opportunity to enhance my programming,
-                analytical, creative and problem solving skills and pursue my career in the competitive world of web
-                based
-                application development."</p>
-            <h2>Profile 2</h2>
-            <p> "Hello I am Sagar Thapa; I am a developer and designer currently residing in Oxford . I am currently
-                looking for
-                opportunity to enhance my programming,
-                analytical, creative and problem solving skills and pursue my career in the competitive world of web
-                based
-                application development."</p>
-            <h2>Profile 3</h2>
-            <p> "Hello I am Sagar Thapa; I am a developer and designer currently residing in Oxford . I am currently
-                looking for
-                opportunity to enhance my programming,
-                analytical, creative and problem solving skills and pursue my career in the competitive world of web
-                based
-                application development."</p>
-        </div>
+<header class="site" [class.nav-open]="navOpen">
+  <div class="wrap nav-row">
+    <a href="#" class="logo">sagar<span>@</span>thapa</a>
+    <nav class="links" [class.open]="navOpen">
+      <a href="#work" (click)="closeNav()">Work</a>
+      <a href="#experience" (click)="closeNav()">Experience</a>
+      <a href="#skills" (click)="closeNav()">Skills</a>
+      <a href="#contact" (click)="closeNav()">Contact</a>
+    </nav>
+    <!-- Hidden for now: <a href="#" class="cv-btn">Download CV</a> -->
+    <button type="button" class="nav-mobile-toggle" (click)="toggleNav()" aria-label="Toggle navigation" [attr.aria-expanded]="navOpen">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <!-- <div class="eyebrow">AVAILABLE FOR NEW OPPORTUNITIES</div> -->
+      <h1>Full-stack engineer building <em>AI-native</em> systems.</h1>
+      <p class="lede">10+ years shipping enterprise software in regulated industries. Now specialising in production LLM systems — AI capability engineered into the core architecture, not bolted on.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn-primary">See the work →</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
+      <div class="stack-tags">
+        <span class="tag">.NET / C#</span>
+        <span class="tag">React</span>
+        <span class="tag">Python</span>
+        <span class="tag">RAG / Agentic LLM</span>
+        <span class="tag">Postgres · pgvector</span>
+        <span class="tag">Azure</span>
+      </div>
     </div>
-</div> -->
+    <div class="pipeline-viz">
+      <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+        <path class="flow-line" d="M 80 40 L 80 120 L 320 120 L 320 200 L 80 200 L 80 280"/>
+        <path class="flow-pulse" d="M 80 40 L 80 120 L 320 120 L 320 200 L 80 200 L 80 280"/>
+        <circle class="node active" cx="80" cy="40" r="7"/>
+        <text class="node-label active" x="98" y="45">request</text>
+        <circle class="node" cx="80" cy="120" r="7"/>
+        <text class="node-label" x="98" y="125">fastapi</text>
+        <circle class="node" cx="320" cy="120" r="7"/>
+        <text class="node-label" x="220" y="105">pgvector</text>
+        <circle class="node" cx="320" cy="200" r="7"/>
+        <text class="node-label" x="220" y="215">rag context</text>
+        <circle class="node" cx="80" cy="200" r="7"/>
+        <text class="node-label" x="98" y="205">llm</text>
+        <circle class="node active" cx="80" cy="280" r="7"/>
+        <text class="node-label active" x="98" y="285">response</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">// what i do</span>
+      <h2>Three things I bring to a team</h2>
+      <p>Not just an engineer who can use an LLM API — someone who ships complete, production-grade AI systems in environments where accuracy genuinely matters.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="glyph">01</span>
+        <h3>Production AI systems</h3>
+        <p>Built and maintain a shipped Azure-hosted LLM feature assisting document classification in a life sciences workflow — real users, real guardrails, real regulatory stakes.</p>
+      </div>
+      <div class="pillar">
+        <span class="glyph">02</span>
+        <h3>Full-stack delivery</h3>
+        <p>A decade across C#, .NET, SQL Server, React and Vue — building the systems trade and enterprise businesses actually run on.</p>
+      </div>
+      <div class="pillar">
+        <span class="glyph">03</span>
+        <h3>Self-directed engineering</h3>
+        <p>WealthWise: architected, built and deployed an entire AI product solo — RAG pipeline, infrastructure, and CI/CD included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">// featured project</span>
+      <h2>WealthWise</h2>
+      <p>A self-directed proof-of-work project — built end to end, from architecture through production deployment.</p>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <div class="project-top">
+          <h3>Portfolio analysis for UK DIY investors</h3>
+          <span class="project-status">● IN DEVELOPMENT</span>
+        </div>
+        <p class="project-desc">UK DIY investors lack tooling to spot <strong>fund overlap</strong>, <strong>concentration risk</strong>, and <strong>ISA/SIPP/GIA tax-wrapper inefficiency</strong> across their portfolio. WealthWise adds a natural-language query layer over portfolio data, powered by a RAG pipeline and agentic LLM architecture — built solo, from system design through CI/CD deployment on production infrastructure.</p>
+      </div>
+
+      <div class="arch-diagram">
+        <svg viewBox="0 0 900 160" xmlns="http://www.w3.org/2000/svg">
+          <path class="flow-line" d="M 50 80 L 850 80" />
+          <path class="flow-pulse" d="M 50 80 L 850 80" style="stroke-dasharray: 6 800; animation-duration: 5s;" />
+          <g>
+            <circle class="node active" cx="50" cy="80" r="8"/>
+            <text class="node-label active" x="20" y="115" text-anchor="middle">React</text>
+          </g>
+          <g>
+            <circle class="node" cx="250" cy="80" r="8"/>
+            <text class="node-label" x="250" y="115" text-anchor="middle">Caddy</text>
+          </g>
+          <g>
+            <circle class="node" cx="450" cy="80" r="8"/>
+            <text class="node-label" x="450" y="115" text-anchor="middle">FastAPI</text>
+          </g>
+          <g>
+            <circle class="node" cx="650" cy="80" r="8"/>
+            <text class="node-label" x="650" y="115" text-anchor="middle">Postgres</text>
+            <text class="node-label" x="650" y="130" text-anchor="middle" style="font-size:9px">+ pgvector</text>
+          </g>
+          <g>
+            <circle class="node active" cx="850" cy="80" r="8"/>
+            <text class="node-label active" x="850" y="45" text-anchor="middle">LLM / RAG</text>
+          </g>
+        </svg>
+      </div>
+
+      <div>
+        <div class="stack-tags" style="margin-bottom: 24px;">
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL · pgvector</span>
+          <span class="tag">React</span>
+          <span class="tag">Docker Compose</span>
+          <span class="tag">Caddy</span>
+          <span class="tag">GitHub Actions CI/CD</span>
+          <span class="tag">Hetzner Cloud</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="btn-ghost">View on GitHub →</a>
+          <a href="#" class="btn-ghost">Read the write-up →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">// experience</span>
+      <h2>Where I've built</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-date">2022 — PRESENT</span>
+        <h3>Senior Software Developer</h3>
+        <div class="role-co">PharmaLex UK</div>
+        <p class="role-desc">Built and maintain a production Azure-hosted LLM feature for document classification in a life sciences context. Leading modernisation of legacy jQuery modules into Vue 3.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">2015 — 2022</span>
+        <h3>Full Stack Developer</h3>
+        <div class="role-co">Car Delivery Network Ltd</div>
+        <p class="role-desc">Built vinCARRIER and vinDISPATCH — transport management and marketplace platforms used by OEMs, dealerships and carriers across the UK and US.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">2014 — 2015</span>
+        <h3>ASP.NET Developer</h3>
+        <div class="role-co">ScreenHits TV</div>
+        <p class="role-desc">B2B/B2C SaaS platforms on Azure with Samsung Smart TV integration and global CDN content delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">// stack</span>
+      <h2>Tools I build with</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <span class="skill-label">AI / LLM</span>
+        <div class="skill-tags">
+          <span class="tag">RAG pipelines</span>
+          <span class="tag">Agentic architectures</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">Microsoft.Extensions.AI</span>
+          <span class="tag">pgvector</span>
+          <span class="tag">Document Intelligence</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Full-Stack</span>
+        <div class="skill-tags">
+          <span class="tag">C#</span>
+          <span class="tag">.NET</span>
+          <span class="tag">Python</span>
+          <span class="tag">React</span>
+          <span class="tag">Vue.js</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Cloud / DevOps</span>
+        <div class="skill-tags">
+          <span class="tag">Azure</span>
+          <span class="tag">Hetzner Cloud</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">GitHub Actions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <span class="section-tag" style="display:block; text-align:center;">// get in touch</span>
+      <h2>Let's build something.</h2>
+      <p>Open to Senior / AI Engineering roles across full-stack and applied LLM systems.</p>
+      <div class="contact-links">
+        <a href="mailto:sagarthapa_9@yahoo.com" class="btn-primary">sagarthapa_9@yahoo.com</a>
+        <a href="tel:07900264592" class="btn-ghost">07900 264592</a>
+        <a href="#" class="btn-ghost">LinkedIn</a>
+        <a href="#" class="btn-ghost">GitHub</a>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 Sagar Thapa — Abingdon, UK</span>
+      <span>built with Angular</span>
+    </div>
+  </div>
+</footer>

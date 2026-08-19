@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagar Thapa — Full-Stack Engineer, AI-Native Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0E17;
+    --surface: #111827;
+    --surface-2: #161F30;
+    --line: #232C3D;
+    --text: #E7EAF2;
+    --text-mute: #8790A3;
+    --text-faint: #57607A;
+    --signal: #5EEAD4;
+    --signal-dim: #234945;
+    --amber: #F0A857;
+    --radius: 3px;
+    --wrap: 1160px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  a { color: inherit; text-decoration: none; }
+  img, svg { display: block; max-width: 100%; }
+  section { position: relative; }
+
+  ::selection { background: var(--signal); color: #0A0E17; }
+  :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 640px) { .wrap { padding: 0 20px; } }
+
+  /* ---------- NAV ---------- */
+  header.site {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,14,23,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 500; color: var(--text); }
+  .logo span { color: var(--signal); }
+  nav.links { display: flex; gap: 32px; align-items: center; }
+  nav.links a { font-size: 14px; color: var(--text-mute); transition: color .15s; }
+  nav.links a:hover { color: var(--text); }
+  .cv-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 9px 16px;
+    border: 1px solid var(--signal-dim);
+    color: var(--signal);
+    border-radius: var(--radius);
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .cv-btn:hover { background: var(--signal); color: #0A0E17; border-color: var(--signal); }
+  .nav-mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 22px; cursor: pointer; }
+
+  @media (max-width: 780px) {
+    nav.links { display: none; }
+    .nav-mobile-toggle { display: block; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero { padding: 96px 0 84px; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--signal);
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--signal); box-shadow: 0 0 0 4px var(--signal-dim);
+  }
+  .hero h1 {
+    font-size: clamp(2.3rem, 4.6vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1.08;
+    margin-bottom: 22px;
+  }
+  .hero h1 em { font-style: normal; color: var(--signal); }
+  .hero p.lede {
+    font-size: 18px;
+    color: var(--text-mute);
+    max-width: 46ch;
+    margin-bottom: 34px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+  .btn-primary, .btn-ghost {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    padding: 13px 22px;
+    border-radius: var(--radius);
+    transition: all .15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary { background: var(--signal); color: #0A0E17; font-weight: 500; }
+  .btn-primary:hover { background: #82f0dd; }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--text-mute); }
+
+  .stack-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    padding: 5px 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text-mute);
+    border-radius: var(--radius);
+  }
+
+  /* ---------- PIPELINE / ARCHITECTURE DIAGRAMS (shared styles) ---------- */
+  .pipeline-viz, .arch-diagram { width: 100%; }
+  .node-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    fill: var(--text-mute);
+  }
+  .node-label.active { fill: var(--signal); font-weight: 500; }
+  circle.node {
+    fill: #1C2740;
+    stroke: #3E4A68;
+    stroke-width: 1.5;
+  }
+  circle.node.active { fill: var(--signal-dim); stroke: var(--signal); }
+  .flow-line {
+    fill: none;
+    stroke: #2C3650;
+    stroke-width: 1.5;
+  }
+  .flow-pulse {
+    fill: none;
+    stroke: var(--signal);
+    stroke-width: 2;
+    stroke-dasharray: 6 220;
+    animation: flow 3.2s linear infinite;
+  }
+  @keyframes flow { to { stroke-dashoffset: -226; } }
+  @media (prefers-reduced-motion: reduce) {
+    .flow-pulse { animation: none; stroke-dasharray: none; opacity: .5; }
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-head { margin-bottom: 48px; max-width: 60ch; }
+  .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--signal);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 600; margin-bottom: 14px; }
+  .section-head p { color: var(--text-mute); font-size: 16px; }
+
+  section.band { padding: 88px 0; border-top: 1px solid var(--line); }
+
+  /* ---------- PILLARS ---------- */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  @media (max-width: 780px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar { background: var(--bg); padding: 34px 30px; }
+  .pillar .glyph {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--signal);
+    font-size: 13px;
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+  .pillar h3 { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+  .pillar p { color: var(--text-mute); font-size: 14.5px; }
+
+  /* ---------- FEATURED PROJECT ---------- */
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 44px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  @media (min-width: 900px) { .project-card { padding: 52px; } }
+  .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 4px; }
+  .project-top h3 { font-size: 26px; font-weight: 600; }
+  .project-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--signal);
+    border: 1px solid var(--signal-dim);
+    padding: 5px 10px;
+    border-radius: var(--radius);
+    white-space: nowrap;
+  }
+  .project-desc { color: var(--text-mute); font-size: 15.5px; max-width: 68ch; margin-bottom: 6px; }
+  .project-desc strong { color: var(--text); font-weight: 500; }
+
+  .arch-diagram {
+    background: #0D1420;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px 20px;
+    overflow-x: auto;
+  }
+  .arch-diagram svg { min-width: 640px; margin: 0 auto; display: block; }
+
+  .project-links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline { border-left: 1px solid var(--line); padding-left: 32px; display: flex; flex-direction: column; gap: 42px; }
+  .tl-item { position: relative; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -37.5px; top: 4px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--signal);
+  }
+  .tl-date { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--signal); margin-bottom: 6px; display: block; }
+  .tl-item h3 { font-size: 19px; font-weight: 600; margin-bottom: 3px; }
+  .tl-item .role-co { color: var(--text-mute); font-size: 14.5px; margin-bottom: 10px; }
+  .tl-item p.role-desc { color: var(--text-mute); font-size: 14.5px; max-width: 62ch; }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  @media (max-width: 780px) { .skills-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .skill-group .skill-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--signal);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: 80px 0 40px;
+  }
+  .contact-inner { text-align: center; max-width: 620px; margin: 0 auto 60px; }
+  .contact-inner h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 600; margin-bottom: 16px; }
+  .contact-inner p { color: var(--text-mute); font-size: 16px; margin-bottom: 32px; }
+  .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 32px; border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--text-faint);
+    flex-wrap: wrap; gap: 12px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="#" class="logo">sagar<span>@</span>thapa</a>
+    <nav class="links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#" class="cv-btn">Download CV</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">AVAILABLE FOR NEW OPPORTUNITIES</div>
+      <h1>Full-stack engineer building <em>AI-native</em> systems.</h1>
+      <p class="lede">10+ years shipping enterprise software in regulated industries. Now specialising in production LLM systems — AI capability engineered into the core architecture, not bolted on.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn-primary">See the work →</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
+      <div class="stack-tags">
+        <span class="tag">.NET / C#</span>
+        <span class="tag">React</span>
+        <span class="tag">Python</span>
+        <span class="tag">RAG / Agentic LLM</span>
+        <span class="tag">Postgres · pgvector</span>
+        <span class="tag">Azure</span>
+      </div>
+    </div>
+    <div class="pipeline-viz">
+      <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+        <path class="flow-line" d="M 80 40 L 80 120 L 320 120 L 320 200 L 80 200 L 80 280"/>
+        <path class="flow-pulse" d="M 80 40 L 80 120 L 320 120 L 320 200 L 80 200 L 80 280"/>
+        <circle class="node active" cx="80" cy="40" r="7"/>
+        <text class="node-label active" x="98" y="45">request</text>
+        <circle class="node" cx="80" cy="120" r="7"/>
+        <text class="node-label" x="98" y="125">fastapi</text>
+        <circle class="node" cx="320" cy="120" r="7"/>
+        <text class="node-label" x="220" y="105">pgvector</text>
+        <circle class="node" cx="320" cy="200" r="7"/>
+        <text class="node-label" x="220" y="215">rag context</text>
+        <circle class="node" cx="80" cy="200" r="7"/>
+        <text class="node-label" x="98" y="205">llm</text>
+        <circle class="node active" cx="80" cy="280" r="7"/>
+        <text class="node-label active" x="98" y="285">response</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">// what i do</span>
+      <h2>Three things I bring to a team</h2>
+      <p>Not just an engineer who can use an LLM API — someone who ships complete, production-grade AI systems in environments where accuracy genuinely matters.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="glyph">01</span>
+        <h3>Production AI systems</h3>
+        <p>Built and maintain a shipped Azure-hosted LLM feature assisting document classification in a life sciences workflow — real users, real guardrails, real regulatory stakes.</p>
+      </div>
+      <div class="pillar">
+        <span class="glyph">02</span>
+        <h3>Full-stack delivery</h3>
+        <p>A decade across C#, .NET, SQL Server, React and Vue — building the systems trade and enterprise businesses actually run on.</p>
+      </div>
+      <div class="pillar">
+        <span class="glyph">03</span>
+        <h3>Self-directed engineering</h3>
+        <p>WealthWise: architected, built and deployed an entire AI product solo — RAG pipeline, infrastructure, and CI/CD included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">// featured project</span>
+      <h2>WealthWise</h2>
+      <p>A self-directed proof-of-work project — built end to end, from architecture through production deployment.</p>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <div class="project-top">
+          <h3>Portfolio analysis for UK DIY investors</h3>
+          <span class="project-status">● IN DEVELOPMENT</span>
+        </div>
+        <p class="project-desc">UK DIY investors lack tooling to spot <strong>fund overlap</strong>, <strong>concentration risk</strong>, and <strong>ISA/SIPP/GIA tax-wrapper inefficiency</strong> across their portfolio. WealthWise adds a natural-language query layer over portfolio data, powered by a RAG pipeline and agentic LLM architecture — built solo, from system design through CI/CD deployment on production infrastructure.</p>
+      </div>
+
+      <div class="arch-diagram">
+        <svg viewBox="0 0 900 160" xmlns="http://www.w3.org/2000/svg">
+          <path class="flow-line" d="M 50 80 L 850 80" />
+          <path class="flow-pulse" d="M 50 80 L 850 80" style="stroke-dasharray: 6 800; animation-duration: 5s;" />
+          <g>
+            <circle class="node active" cx="50" cy="80" r="8"/>
+            <text class="node-label active" x="20" y="115" text-anchor="middle">React</text>
+          </g>
+          <g>
+            <circle class="node" cx="250" cy="80" r="8"/>
+            <text class="node-label" x="250" y="115" text-anchor="middle">Caddy</text>
+          </g>
+          <g>
+            <circle class="node" cx="450" cy="80" r="8"/>
+            <text class="node-label" x="450" y="115" text-anchor="middle">FastAPI</text>
+          </g>
+          <g>
+            <circle class="node" cx="650" cy="80" r="8"/>
+            <text class="node-label" x="650" y="115" text-anchor="middle">Postgres</text>
+            <text class="node-label" x="650" y="130" text-anchor="middle" style="font-size:9px">+ pgvector</text>
+          </g>
+          <g>
+            <circle class="node active" cx="850" cy="80" r="8"/>
+            <text class="node-label active" x="850" y="45" text-anchor="middle">LLM / RAG</text>
+          </g>
+        </svg>
+      </div>
+
+      <div>
+        <div class="stack-tags" style="margin-bottom: 24px;">
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL · pgvector</span>
+          <span class="tag">React</span>
+          <span class="tag">Docker Compose</span>
+          <span class="tag">Caddy</span>
+          <span class="tag">GitHub Actions CI/CD</span>
+          <span class="tag">Hetzner Cloud</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="btn-ghost">View on GitHub →</a>
+          <a href="#" class="btn-ghost">Read the write-up →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">// experience</span>
+      <h2>Where I've built</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-date">2022 — PRESENT</span>
+        <h3>Senior Software Developer</h3>
+        <div class="role-co">PharmaLex UK</div>
+        <p class="role-desc">Built and maintain a production Azure-hosted LLM feature for document classification in a life sciences context. Leading modernisation of legacy jQuery modules into Vue 3.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">2015 — 2022</span>
+        <h3>Full Stack Developer</h3>
+        <div class="role-co">Car Delivery Network Ltd</div>
+        <p class="role-desc">Built vinCARRIER and vinDISPATCH — transport management and marketplace platforms used by OEMs, dealerships and carriers across the UK and US.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">2014 — 2015</span>
+        <h3>ASP.NET Developer</h3>
+        <div class="role-co">ScreenHits TV</div>
+        <p class="role-desc">B2B/B2C SaaS platforms on Azure with Samsung Smart TV integration and global CDN content delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">// stack</span>
+      <h2>Tools I build with</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <span class="skill-label">AI / LLM</span>
+        <div class="skill-tags">
+          <span class="tag">RAG pipelines</span>
+          <span class="tag">Agentic architectures</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">Microsoft.Extensions.AI</span>
+          <span class="tag">pgvector</span>
+          <span class="tag">Document Intelligence</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Full-Stack</span>
+        <div class="skill-tags">
+          <span class="tag">C#</span>
+          <span class="tag">.NET</span>
+          <span class="tag">Python</span>
+          <span class="tag">React</span>
+          <span class="tag">Vue.js</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Cloud / DevOps</span>
+        <div class="skill-tags">
+          <span class="tag">Azure</span>
+          <span class="tag">Hetzner Cloud</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">GitHub Actions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <span class="section-tag" style="display:block; text-align:center;">// get in touch</span>
+      <h2>Let's build something.</h2>
+      <p>Open to Senior / AI Engineering roles across full-stack and applied LLM systems.</p>
+      <div class="contact-links">
+        <a href="mailto:sagarthapa_9@yahoo.com" class="btn-primary">sagarthapa_9@yahoo.com</a>
+        <a href="tel:07900264592" class="btn-ghost">07900 264592</a>
+        <a href="#" class="btn-ghost">LinkedIn</a>
+        <a href="#" class="btn-ghost">GitHub</a>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 Sagar Thapa — Abingdon, UK</span>
+      <span>built with Angular · this POC in static HTML</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav could expand here later — POC keeps it simple
+</script>
+</body>
+</html>

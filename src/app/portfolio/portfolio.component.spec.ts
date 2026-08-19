@@ -20,4 +20,9 @@ describe('PortfolioComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the landing page hero', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.hero h1')?.textContent).toContain('Full-stack engineer');
+  });
 });
